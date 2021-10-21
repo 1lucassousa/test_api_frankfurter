@@ -10,9 +10,7 @@ class AppWidget extends StatelessWidget {
       title: 'Marvel Application',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.red,
-          //fontFamily: 'PTSerif',
-          appBarTheme: const AppBarTheme(color: Colors.transparent)),
+          primarySwatch: Colors.blue),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

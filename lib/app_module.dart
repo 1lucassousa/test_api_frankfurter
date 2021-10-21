@@ -6,6 +6,7 @@ import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/usecase
 import 'package:test_api_frankfurter/modules/test_api_frankfurter/external/datasource/get_currencies_api_datasource.dart';
 import 'package:test_api_frankfurter/modules/test_api_frankfurter/infra/repository/get_currencies_repository.dart';
 import 'package:test_api_frankfurter/modules/test_api_frankfurter/presenter/bloc/currencie_bloc.dart';
+import 'package:test_api_frankfurter/modules/test_api_frankfurter/presenter/currencie_conversion_page.dart';
 import 'package:test_api_frankfurter/modules/test_api_frankfurter/presenter/home_page.dart';
 
 class AppModule extends MainModule {
@@ -20,7 +21,8 @@ class AppModule extends MainModule {
 
   @override
   List<ModularRouter> get routers =>
-      [ModularRouter('/', child: (_, __) => HomePage())];
+      [ModularRouter('/', child: (_, __) => HomePage()),
+      ModularRouter('/', child: (_, __) => CurrencieConversionPage())];
 
   @override
   Widget get bootstrap => AppWidget();
