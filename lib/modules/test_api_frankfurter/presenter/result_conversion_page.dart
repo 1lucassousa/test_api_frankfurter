@@ -48,45 +48,57 @@ class ResultConversionPage extends StatelessWidget {
                 children: [
                   RichText(
                     text: TextSpan(
-                      style: const TextStyle(color: Colors.black, fontSize: 20),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                       children: <TextSpan>[
                         const TextSpan(text: 'Amount: '),
                         TextSpan(
                             text: CurrencyController.resultConversion.amount
                                 .toString(),
-                            style: const TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold)),
+                            style:
+                                const TextStyle(fontWeight: FontWeight.normal)),
                       ],
                     ),
                   ),
                   RichText(
                     text: TextSpan(
-                      style: const TextStyle(color: Colors.black, fontSize: 20),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                       children: <TextSpan>[
                         const TextSpan(text: 'Base: '),
                         TextSpan(
                             text: CurrencyController.resultConversion.base,
-                            style: const TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold)),
+                            style:
+                                const TextStyle(fontWeight: FontWeight.normal)),
                       ],
                     ),
                   ),
                   RichText(
                     text: TextSpan(
-                      style: const TextStyle(color: Colors.black, fontSize: 20),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                       children: <TextSpan>[
                         const TextSpan(text: 'Date: '),
                         TextSpan(
                             text: CurrencyController.resultConversion.date
                                 .toString(),
-                            style: const TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold)),
+                            style:
+                                const TextStyle(fontWeight: FontWeight.normal)),
                       ],
                     ),
                   ),
                   RichText(
                     text: TextSpan(
-                      style: const TextStyle(color: Colors.black, fontSize: 20),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                       children: <TextSpan>[
                         const TextSpan(text: 'Value in '),
                         TextSpan(
@@ -97,8 +109,8 @@ class ResultConversionPage extends StatelessWidget {
                             text: CurrencyController
                                 .resultConversion.rates.value
                                 .toString(),
-                            style: const TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold)),
+                            style:
+                                const TextStyle(fontWeight: FontWeight.normal)),
                       ],
                     ),
                   ),

@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.test_api_frankfurter">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
    <application
         android:label="test_api_frankfurter"
         android:icon="@mipmap/ic_launcher">

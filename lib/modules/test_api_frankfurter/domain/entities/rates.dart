@@ -1,6 +1,6 @@
 class Rates {
   final String abbreviation;
-  final double value;
+  final dynamic value;
 
   Rates({this.abbreviation, this.value});
 }

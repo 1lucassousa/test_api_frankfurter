@@ -57,128 +57,135 @@ class _CurrencyConversionPageState extends State<CurrencyConversionPage> {
                   (snapshot.data).currencies);
             }
 
-            return ListView(
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                _textFormField("Value currency",
-                    controller: valuecurrencyController),
-                const SizedBox(
-                  height: 20,
-                ),
-                StreamBuilder<List<Currency>>(
-                  stream: dropdownBloc.currencysIn,
-                  builder: (context, snapshot) {
-                    return StreamBuilder<Currency>(
-                      stream: dropdownBloc.selectedcurrencyIn,
-                      builder: (context, snapshot) {
-                        return Container(
-                          height: 60,
-                          padding: const EdgeInsets.only(
-                              top: 4, right: 10, left: 10),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(25)),
-                          child: DropdownButton(
-                            hint: const Text('In'),
-                            dropdownColor: Colors.white,
-                            icon: const Icon(Icons.arrow_drop_down),
-                            iconSize: 16,
-                            isExpanded: true,
-                            underline: const SizedBox(),
-                            style: const TextStyle(
-                              color: Colors.black,
+            return Container(
+              padding: const EdgeInsets.all(10),
+              child: ListView(
+                children: [
+                  _textFormField("Amount", controller: valuecurrencyController),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  StreamBuilder<List<Currency>>(
+                    stream: dropdownBloc.currencysIn,
+                    builder: (context, snapshot) {
+                      return StreamBuilder<Currency>(
+                        stream: dropdownBloc.selectedcurrencyIn,
+                        builder: (context, snapshot) {
+                          return Container(
+                            height: 60,
+                            padding: const EdgeInsets.only(
+                                top: 4, right: 10, left: 10),
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.grey, width: 1),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: DropdownButton(
+                              hint: const Text('In'),
+                              dropdownColor: Colors.white,
+                              icon: const Icon(Icons.arrow_drop_down),
+                              iconSize: 16,
+                              isExpanded: true,
+                              underline: const SizedBox(),
+                              style: const TextStyle(
+                                color: Colors.black,
+                              ),
+                              value: snapshot.data,
+                              onChanged: dropdownBloc.selectedCurrencyinEvent,
+                              items: CurrencyController.list.map((valueItem) {
+                                return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(valueItem.abbreviation +
+                                      ": " +
+                                      valueItem.name),
+                                );
+                              }).toList(),
                             ),
-                            value: snapshot.data,
-                            onChanged: dropdownBloc.selectedCurrencyinEvent,
-                            items: CurrencyController.list.map((valueItem) {
-                              return DropdownMenuItem(
-                                value: valueItem,
-                                child: Text(valueItem.abbreviation +
-                                    ": " +
-                                    valueItem.name),
-                              );
-                            }).toList(),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                StreamBuilder<List<Currency>>(
-                  stream: dropdownBloc.currencysOut,
-                  builder: (context, snapshot) {
-                    return StreamBuilder<Currency>(
-                      stream: dropdownBloc.selectedcurrencyOut,
-                      builder: (context, snapshot) {
-                        return Container(
-                          height: 60,
-                          padding: const EdgeInsets.only(
-                              top: 4, right: 10, left: 10),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(25)),
-                          child: DropdownButton(
-                            hint: const Text('Out'),
-                            dropdownColor: Colors.white,
-                            icon: const Icon(Icons.arrow_drop_down),
-                            iconSize: 16,
-                            isExpanded: true,
-                            underline: const SizedBox(),
-                            style: const TextStyle(
-                              color: Colors.black,
-                            ),
-                            value: snapshot.data,
-                            onChanged: dropdownBloc.selectedCurrencyOutEvent,
-                            items: CurrencyController.list.map((valueItem) {
-                              return DropdownMenuItem(
-                                value: valueItem,
-                                child: Text(valueItem.abbreviation +
-                                    ": " +
-                                    valueItem.name),
-                              );
-                            }).toList(),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  width: 200,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18)),
-                    ),
-                    child: const Text('Convert'),
-                    onPressed: () async {
-                      if (valuecurrencyController.text.isEmpty ||
-                          !dropdownBloc.valueInHasValue ||
-                          !dropdownBloc.valueOutHasValue) {
-                        _alert(context, 'You need to enter all fields');
-                      } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ResultConversionPage(
-                                amount: valuecurrencyController.text,
-                                from: dropdownBloc.valueIn,
-                                to: dropdownBloc.valueOut),
-                          ),
-                        );
-                      }
+                          );
+                        },
+                      );
                     },
                   ),
-                )
-              ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  StreamBuilder<List<Currency>>(
+                    stream: dropdownBloc.currencysOut,
+                    builder: (context, snapshot) {
+                      return StreamBuilder<Currency>(
+                        stream: dropdownBloc.selectedcurrencyOut,
+                        builder: (context, snapshot) {
+                          return Container(
+                            height: 60,
+                            padding: const EdgeInsets.only(
+                                top: 4, right: 10, left: 10),
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.grey, width: 1),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: DropdownButton(
+                              hint: const Text('Out'),
+                              dropdownColor: Colors.white,
+                              icon: const Icon(Icons.arrow_drop_down),
+                              iconSize: 16,
+                              isExpanded: true,
+                              underline: const SizedBox(),
+                              style: const TextStyle(
+                                color: Colors.black,
+                              ),
+                              value: snapshot.data,
+                              onChanged: dropdownBloc.selectedCurrencyOutEvent,
+                              items: CurrencyController.list.map((valueItem) {
+                                return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(valueItem.abbreviation +
+                                      ": " +
+                                      valueItem.name),
+                                );
+                              }).toList(),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18)),
+                      ),
+                      child: const Text('Convert'),
+                      onPressed: () async {
+                        if (valuecurrencyController.text.isEmpty ||
+                            !dropdownBloc.valueInHasValue ||
+                            !dropdownBloc.valueOutHasValue) {
+                          _alert(context, 'You need to enter all fields');
+                        } else if (valuecurrencyController.text.contains(',')) {
+                          _alert(context,
+                              'Amount has invalid character, use period instead of comma');
+                        } else if (dropdownBloc.valueIn ==
+                            dropdownBloc.valueOut) {
+                          _alert(context, 'Values ​​cannot be equal');
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ResultConversionPage(
+                                  amount: valuecurrencyController.text,
+                                  from: dropdownBloc.valueIn,
+                                  to: dropdownBloc.valueOut),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  )
+                ],
+              ),
             );
           },
         ));

@@ -4,7 +4,7 @@ import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/entitie
 
 class ResultRatesModel extends Rates {
   final String abbreviation;
-  final double value;
+  final dynamic value;
 
   ResultRatesModel({this.abbreviation, this.value});
 
@@ -17,7 +17,7 @@ class ResultRatesModel extends Rates {
 
   factory ResultRatesModel.fromMap(Map<String, dynamic> map) {
     String base;
-    double toBaseValue;
+    dynamic toBaseValue;
     map.forEach((key, value) {
       base = key;
       toBaseValue = value;
