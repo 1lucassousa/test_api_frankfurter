@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
-import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/entities/currencie.dart';
+import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/entities/currency.dart';
 import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/error/error.dart';
-import 'package:test_api_frankfurter/modules/test_api_frankfurter/infra/datasource/currencie_datasource.dart';
-import 'package:test_api_frankfurter/modules/test_api_frankfurter/infra/model/result_currencie_model.dart';
+import 'package:test_api_frankfurter/modules/test_api_frankfurter/infra/datasource/currency_datasource.dart';
+import 'package:test_api_frankfurter/modules/test_api_frankfurter/infra/model/result_currency_model.dart';
 
-class GetCurrenciesApiDatasource implements CurrencieDatasource {
+class GetCurrenciesApiDatasource implements CurrencyDatasource {
   final Dio dio;
 
   GetCurrenciesApiDatasource(this.dio);
 
   @override
-  Future<List<Currencie>> getAllCurrencieAvailable() async {
+  Future<List<Currency>> getAllCurrencieAvailable() async {
     var url = "https://api.frankfurter.app/currencies";
 
     var response = await dio.get(
@@ -24,7 +24,7 @@ class GetCurrenciesApiDatasource implements CurrencieDatasource {
     );
 
     if (response.statusCode == 200) {
-      final result = ResultCurrencieModel.fromMap(response.data);
+      final result = ResultCurrencyModel.fromMap(response.data);
       return result;
     } else {
       throw DatasourceError();

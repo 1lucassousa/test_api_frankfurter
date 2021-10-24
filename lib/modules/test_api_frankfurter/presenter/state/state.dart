@@ -1,12 +1,19 @@
-import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/entities/currencie.dart';
+import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/entities/currency.dart';
+import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/entities/currency_conversion.dart';
 import 'package:test_api_frankfurter/modules/test_api_frankfurter/domain/error/error.dart';
 
 abstract class State {}
 
-class CurrencieSuccess implements State {
-  final List<Currencie> currencies;
+class CurrencySuccess implements State {
+  final List<Currency> currencies;
 
-  CurrencieSuccess(this.currencies);
+  CurrencySuccess(this.currencies);
+}
+
+class CurrencyConversionSuccess implements State {
+  final CurrencyConversion currencyConversion;
+
+  CurrencyConversionSuccess(this.currencyConversion);
 }
 
 class Error implements State {
