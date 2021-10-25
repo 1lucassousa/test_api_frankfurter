@@ -16,12 +16,7 @@ class GetConversionImpl implements GetConversion {
   @override
   Future<Either<Failure, CurrencyConversion>> call(
       String amount, String from, String to) async {
-    if (amount == null ||
-        amount.isEmpty ||
-        from.isEmpty ||
-        from == null ||
-        to.isEmpty ||
-        to == null) {
+    if (amount == null || from == null || to == null) {
       return Left(InvalidError());
     }
 

@@ -9,7 +9,7 @@ main() {
 
   test("Must return all Currencies Available when request success complete",
       () async {
-    final future = datasource.getAllCurrencieAvailable;
+    final future = datasource.getAllCurrencieAvailable();
 
     expect(future, completes);
   });
