@@ -5,9 +5,7 @@ class DropdownBloc {
   final _selectedCurrencyIn = BehaviorSubject<Currency>();
   final _selectedCurrencyOut = BehaviorSubject<Currency>();
 
-  Stream<List<Currency>> currencysIn;
   Stream<Currency> get selectedcurrencyIn => _selectedCurrencyIn;
-  Stream<List<Currency>> currencysOut;
   Stream<Currency> get selectedcurrencyOut => _selectedCurrencyOut;
 
   void selectedCurrencyinEvent(Currency currency) =>

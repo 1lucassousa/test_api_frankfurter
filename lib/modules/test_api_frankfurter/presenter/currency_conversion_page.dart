@@ -65,86 +65,74 @@ class _CurrencyConversionPageState extends State<CurrencyConversionPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  StreamBuilder<List<Currency>>(
-                    stream: dropdownBloc.currencysIn,
+                  StreamBuilder<Currency>(
+                    stream: dropdownBloc.selectedcurrencyIn,
                     builder: (context, snapshot) {
-                      return StreamBuilder<Currency>(
-                        stream: dropdownBloc.selectedcurrencyIn,
-                        builder: (context, snapshot) {
-                          return Container(
-                            height: 60,
-                            padding: const EdgeInsets.only(
-                                top: 4, right: 10, left: 10),
-                            decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.grey, width: 1),
-                                borderRadius: BorderRadius.circular(25)),
-                            child: DropdownButton(
-                              hint: const Text('In'),
-                              dropdownColor: Colors.white,
-                              icon: const Icon(Icons.arrow_drop_down),
-                              iconSize: 16,
-                              isExpanded: true,
-                              underline: const SizedBox(),
-                              style: const TextStyle(
-                                color: Colors.black,
-                              ),
-                              value: snapshot.data,
-                              onChanged: dropdownBloc.selectedCurrencyinEvent,
-                              items: CurrencyController.list.map((valueItem) {
-                                return DropdownMenuItem(
-                                  value: valueItem,
-                                  child: Text(valueItem.abbreviation +
-                                      ": " +
-                                      valueItem.name),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        },
+                      return Container(
+                        height: 60,
+                        padding:
+                            const EdgeInsets.only(top: 4, right: 10, left: 10),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey, width: 1),
+                            borderRadius: BorderRadius.circular(25)),
+                        child: DropdownButton(
+                          hint: const Text('In'),
+                          dropdownColor: Colors.white,
+                          icon: const Icon(Icons.arrow_drop_down),
+                          iconSize: 16,
+                          isExpanded: true,
+                          underline: const SizedBox(),
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
+                          value: snapshot.data,
+                          onChanged: dropdownBloc.selectedCurrencyinEvent,
+                          items: CurrencyController.list.map((valueItem) {
+                            return DropdownMenuItem(
+                              value: valueItem,
+                              child: Text(valueItem.abbreviation +
+                                  ": " +
+                                  valueItem.name),
+                            );
+                          }).toList(),
+                        ),
                       );
                     },
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  StreamBuilder<List<Currency>>(
-                    stream: dropdownBloc.currencysOut,
+                  StreamBuilder<Currency>(
+                    stream: dropdownBloc.selectedcurrencyOut,
                     builder: (context, snapshot) {
-                      return StreamBuilder<Currency>(
-                        stream: dropdownBloc.selectedcurrencyOut,
-                        builder: (context, snapshot) {
-                          return Container(
-                            height: 60,
-                            padding: const EdgeInsets.only(
-                                top: 4, right: 10, left: 10),
-                            decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.grey, width: 1),
-                                borderRadius: BorderRadius.circular(25)),
-                            child: DropdownButton(
-                              hint: const Text('Out'),
-                              dropdownColor: Colors.white,
-                              icon: const Icon(Icons.arrow_drop_down),
-                              iconSize: 16,
-                              isExpanded: true,
-                              underline: const SizedBox(),
-                              style: const TextStyle(
-                                color: Colors.black,
-                              ),
-                              value: snapshot.data,
-                              onChanged: dropdownBloc.selectedCurrencyOutEvent,
-                              items: CurrencyController.list.map((valueItem) {
-                                return DropdownMenuItem(
-                                  value: valueItem,
-                                  child: Text(valueItem.abbreviation +
-                                      ": " +
-                                      valueItem.name),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        },
+                      return Container(
+                        height: 60,
+                        padding:
+                            const EdgeInsets.only(top: 4, right: 10, left: 10),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey, width: 1),
+                            borderRadius: BorderRadius.circular(25)),
+                        child: DropdownButton(
+                          hint: const Text('Out'),
+                          dropdownColor: Colors.white,
+                          icon: const Icon(Icons.arrow_drop_down),
+                          iconSize: 16,
+                          isExpanded: true,
+                          underline: const SizedBox(),
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
+                          value: snapshot.data,
+                          onChanged: dropdownBloc.selectedCurrencyOutEvent,
+                          items: CurrencyController.list.map((valueItem) {
+                            return DropdownMenuItem(
+                              value: valueItem,
+                              child: Text(valueItem.abbreviation +
+                                  ": " +
+                                  valueItem.name),
+                            );
+                          }).toList(),
+                        ),
                       );
                     },
                   ),
