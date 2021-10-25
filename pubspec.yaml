@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   custom_progress_dialog: ^1.0.5
   rxdart: ^0.27.2
+  intl:
   equatable:
   dartz: 
   dio:
